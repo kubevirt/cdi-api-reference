@@ -1647,6 +1647,18 @@ The sign will be omitted unless the number is negative.</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>subresource</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>Subresource is the name of the subresource used to update that object, or empty string if the object was updated through the main resource. The value of this field is used to distinguish between managers, even if they share the same name. For example, a status update will be distinct from a regular update using the same manager name. Note that the APIVersion field is not related to the Subresource field and it always corresponds to the version of the main resource.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p><strong>time</strong><br>
 <em>optional</em></p>
 </div></div></td>
@@ -1778,11 +1790,20 @@ The sign will be omitted unless the number is negative.</p>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>Represents a key&#8217;s relationship to a set of values. Valid operators are In, NotIn, Exists, DoesNotExist. Gt, and Lt.<br>
+<p>Represents a key&#8217;s relationship to a set of values. Valid operators are In, NotIn, Exists, DoesNotExist. Gt, and Lt.</p>
+</div>
+<div class="paragraph">
+<p>Possible enum values:
+ - <code>&quot;DoesNotExist&quot;</code>
+ - <code>&quot;Exists&quot;</code>
+ - <code>&quot;Gt&quot;</code>
+ - <code>&quot;In&quot;</code>
+ - <code>&quot;Lt&quot;</code>
+ - <code>&quot;NotIn&quot;</code><br>
 <strong>Default</strong> : <code>""</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>string</p>
+<p>enum (DoesNotExist, Exists, Gt, In, Lt, NotIn)</p>
 </div></div></td>
 </tr>
 <tr>
@@ -2228,7 +2249,24 @@ The sign will be omitted unless the number is negative.</p>
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>This field can be used to specify either: * An existing VolumeSnapshot object (snapshot.storage.k8s.io/VolumeSnapshot) * An existing PVC (PersistentVolumeClaim) * An existing custom resource that implements data population (Alpha) In order to use custom resource types that implement data population, the AnyVolumeDataSource feature gate must be enabled. If the provisioner or an external controller can support the specified data source, it will create a new volume based on the contents of the specified data source.</p>
+<p>This field can be used to specify either: * An existing VolumeSnapshot object (snapshot.storage.k8s.io/VolumeSnapshot) * An existing PVC (PersistentVolumeClaim) If the provisioner or an external controller can support the specified data source, it will create a new volume based on the contents of the specified data source. If the AnyVolumeDataSource feature gate is enabled, this field will always have the same contents as the DataSourceRef field.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><a href="#_v1_typedlocalobjectreference">v1.TypedLocalObjectReference</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>dataSourceRef</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>Specifies the object from which to populate the volume with data, if a non-empty volume is desired. This may be any local object from a non-empty API group (non core object) or a PersistentVolumeClaim object. When this field is specified, volume binding will only succeed if the type of the specified object matches some installed volume populator or dynamic provisioner. This field will replace the functionality of the DataSource field and as such if both fields are non-empty, they must have the same value. For backwards compatibility, both fields (DataSource and DataSourceRef) will be set to the same value automatically if one of them is empty and the other is non-empty. There are two important differences between DataSource and DataSourceRef: * While DataSource only allows two specific types of objects, DataSourceRef
+ allows any non-core object, as well as PersistentVolumeClaim objects.
+* While DataSource ignores disallowed values (dropping them), DataSourceRef
+ preserves all values, and generates an error if a disallowed value is
+ specified.
+(Alpha) Using this field requires the AnyVolumeDataSource feature gate to be enabled.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p><a href="#_v1_typedlocalobjectreference">v1.TypedLocalObjectReference</a></p>
@@ -2240,7 +2278,7 @@ The sign will be omitted unless the number is negative.</p>
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>Resources represents the minimum resources the volume should have. More info: <a href="https://kubernetes.io/docs/concepts/storage/persistent-volumes#resources" class="bare">https://kubernetes.io/docs/concepts/storage/persistent-volumes#resources</a></p>
+<p>Resources represents the minimum resources the volume should have. If RecoverVolumeExpansionFailure feature is enabled users are allowed to specify resource requirements that are lower than previous value but must still be higher than capacity recorded in the status field of the claim. More info: <a href="https://kubernetes.io/docs/concepts/storage/persistent-volumes#resources" class="bare">https://kubernetes.io/docs/concepts/storage/persistent-volumes#resources</a></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p><a href="#_v1_resourcerequirements">v1.ResourceRequirements</a></p>
@@ -2376,11 +2414,23 @@ The sign will be omitted unless the number is negative.</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>namespaceSelector</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>A label query over the set of namespaces that the term applies to. The term is applied to the union of the namespaces selected by this field and the ones listed in the namespaces field. null selector and null or empty namespaces list means "this pod&#8217;s namespace". An empty selector ({}) matches all namespaces. This field is beta-level and is only honored when PodAffinityNamespaceSelector feature is enabled.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><a href="#_v1_labelselector">v1.LabelSelector</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p><strong>namespaces</strong><br>
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>namespaces specifies which namespaces the labelSelector applies to (matches against); null or empty list means "this pod&#8217;s namespace"</p>
+<p>namespaces specifies a static list of namespace names that the term applies to. The term is applied to the union of the namespaces listed in this field and the ones selected by namespaceSelector. null or empty namespaces list and null namespaceSelector means "this pod&#8217;s namespace"</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p>&lt; string &gt; array</p>
@@ -2566,7 +2616,7 @@ The sign will be omitted unless the number is negative.</p>
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>Limits describes the maximum amount of compute resources allowed. More info: <a href="https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/" class="bare">https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/</a></p>
+<p>Limits describes the maximum amount of compute resources allowed. More info: <a href="https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/" class="bare">https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/</a></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p>&lt; string, <a href="#_resource_quantity">resource.Quantity</a> &gt; map</p>
@@ -2578,7 +2628,7 @@ The sign will be omitted unless the number is negative.</p>
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>Requests describes the minimum amount of compute resources required. If Requests is omitted for a container, it defaults to Limits if that is explicitly specified, otherwise to an implementation-defined value. More info: <a href="https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/" class="bare">https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/</a></p>
+<p>Requests describes the minimum amount of compute resources required. If Requests is omitted for a container, it defaults to Limits if that is explicitly specified, otherwise to an implementation-defined value. More info: <a href="https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/" class="bare">https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/</a></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p>&lt; string, <a href="#_resource_quantity">resource.Quantity</a> &gt; map</p>
@@ -2979,9 +3029,15 @@ The sign will be omitted unless the number is negative.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p>Effect indicates the taint effect to match. Empty means match all taint effects. When specified, allowed values are NoSchedule, PreferNoSchedule and NoExecute.</p>
+</div>
+<div class="paragraph">
+<p>Possible enum values:
+ - <code>&quot;NoExecute&quot;</code> Evict any already-running pods that do not tolerate the taint. Currently enforced by NodeController.
+ - <code>&quot;NoSchedule&quot;</code> Do not allow new pods to schedule onto the node unless they tolerate the taint, but allow all pods submitted to Kubelet without going through the scheduler to start, and allow all already-running pods to continue running. Enforced by the scheduler.
+ - <code>&quot;PreferNoSchedule&quot;</code> Like TaintEffectNoSchedule, but the scheduler tries not to schedule new pods onto the node, rather than prohibiting new pods from scheduling onto the node entirely. Enforced by the scheduler.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>string</p>
+<p>enum (NoExecute, NoSchedule, PreferNoSchedule)</p>
 </div></div></td>
 </tr>
 <tr>
@@ -3003,9 +3059,14 @@ The sign will be omitted unless the number is negative.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p>Operator represents a key&#8217;s relationship to the value. Valid operators are Exists and Equal. Defaults to Equal. Exists is equivalent to wildcard for value, so that a pod can tolerate all taints of a particular category.</p>
+</div>
+<div class="paragraph">
+<p>Possible enum values:
+ - <code>&quot;Equal&quot;</code>
+ - <code>&quot;Exists&quot;</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>string</p>
+<p>enum (Equal, Exists)</p>
 </div></div></td>
 </tr>
 <tr>
@@ -3800,9 +3861,15 @@ The sign will be omitted unless the number is negative.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p>PullPolicy describes a policy for if/when to pull a container image</p>
+</div>
+<div class="paragraph">
+<p>Possible enum values:
+ - <code>&quot;Always&quot;</code> means that kubelet always attempts to pull the latest image. Container will fail If the pull fails.
+ - <code>&quot;IfNotPresent&quot;</code> means that kubelet pulls if the image isn&#8217;t present on disk. Container will fail if the image isn&#8217;t present and the pull fails.
+ - <code>&quot;Never&quot;</code> means that kubelet never pulls an image, but only uses a local image. Container will fail if the image isn&#8217;t present</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>string</p>
+<p>enum (Always, IfNotPresent, Never)</p>
 </div></div></td>
 </tr>
 <tr>
