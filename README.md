@@ -6,6 +6,7 @@ Content of this repository is generated from OpenAPI specification of
 ## KubeVirt Containerized Data Importer API References
 
 * [main](https://kubevirt.io/cdi-api-reference/main/index.html)
+* [v1.48.1](https://kubevirt.io/cdi-api-reference/v1.48.1/index.html)
 * [v1.48.0](https://kubevirt.io/cdi-api-reference/v1.48.0/index.html)
 * [v1.47.0](https://kubevirt.io/cdi-api-reference/v1.47.0/index.html)
 * [v1.46.0](https://kubevirt.io/cdi-api-reference/v1.46.0/index.html)
