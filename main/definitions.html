@@ -512,6 +512,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1beta1_datavolumesourceref">v1beta1.DataVolumeSourceRef</a></li>
 <li><a href="#_v1beta1_datavolumesourceregistry">v1beta1.DataVolumeSourceRegistry</a></li>
 <li><a href="#_v1beta1_datavolumesources3">v1beta1.DataVolumeSourceS3</a></li>
+<li><a href="#_v1beta1_datavolumesourcesnapshot">v1beta1.DataVolumeSourceSnapshot</a></li>
 <li><a href="#_v1beta1_datavolumesourceupload">v1beta1.DataVolumeSourceUpload</a></li>
 <li><a href="#_v1beta1_datavolumesourcevddk">v1beta1.DataVolumeSourceVDDK</a></li>
 <li><a href="#_v1beta1_datavolumespec">v1beta1.DataVolumeSpec</a></li>
@@ -5042,6 +5043,15 @@ Currently unsupported.
 <p><a href="#_v1beta1_datavolumesourcepvc">v1beta1.DataVolumeSourcePVC</a></p>
 </div></div></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>snapshot</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><a href="#_v1beta1_datavolumesourcesnapshot">v1beta1.DataVolumeSourceSnapshot</a></p>
+</div></div></td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -5483,6 +5493,15 @@ Currently unsupported.
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>snapshot</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><a href="#_v1beta1_datavolumesourcesnapshot">v1beta1.DataVolumeSourceSnapshot</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p><strong>upload</strong><br>
 <em>optional</em></p>
 </div></div></td>
@@ -5897,6 +5916,54 @@ Currently unsupported.
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p>URL is the url of the S3 source<br>
+<strong>Default</strong> : <code>""</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_v1beta1_datavolumesourcesnapshot">v1beta1.DataVolumeSourceSnapshot</h3>
+<div class="paragraph">
+<p>DataVolumeSourceSnapshot provides the parameters to create a Data Volume from an existing VolumeSnapshot</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>name</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>The name of the source VolumeSnapshot<br>
+<strong>Default</strong> : <code>""</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>namespace</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>The namespace of the source VolumeSnapshot<br>
 <strong>Default</strong> : <code>""</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
