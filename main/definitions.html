@@ -2498,9 +2498,14 @@ currently the highest minTLSVersion allowed is VersionTLS12<br>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p>volumeMode defines what type of volume is required by the claim. Value of Filesystem is implied when not included in claim spec.</p>
+</div>
+<div class="paragraph">
+<p>Possible enum values:
+ - <code>&quot;Block&quot;</code> means the volume will not be formatted with a filesystem and will remain a raw block device.
+ - <code>&quot;Filesystem&quot;</code> means the volume will be or is formatted with a filesystem.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>string</p>
+<p>enum (Block, Filesystem)</p>
 </div></div></td>
 </tr>
 <tr>
@@ -6830,9 +6835,14 @@ data:
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p>volumeMode defines what type of volume is required by the claim. Value of Filesystem is implied when not included in claim spec.</p>
+</div>
+<div class="paragraph">
+<p>Possible enum values:
+ - <code>&quot;Block&quot;</code> means the volume will not be formatted with a filesystem and will remain a raw block device.
+ - <code>&quot;Filesystem&quot;</code> means the volume will be or is formatted with a filesystem.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>string</p>
+<p>enum (Block, Filesystem)</p>
 </div></div></td>
 </tr>
 <tr>

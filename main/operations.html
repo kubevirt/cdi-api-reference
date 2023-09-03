@@ -433,9 +433,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_paths">Operations</a>
 <ul class="sectlevel2">
 <li><a href="#_getuploadrootpaths">GET /</a></li>
-<li><a href="#_getuploadapis">GET /apis</a></li>
-<li><a href="#_getapigroup-cdi_kubevirt_io">GET /apis/cdi.kubevirt.io/</a></li>
-<li><a href="#_getapiresources-cdi_kubevirt_io-v1beta1">GET /apis/cdi.kubevirt.io/v1beta1/</a></li>
+<li><a href="#_getapigroup-cdi_kubevirt_io">GET /apis/cdi.kubevirt.io</a></li>
+<li><a href="#_getapiresources-cdi_kubevirt_io-v1beta1">GET /apis/cdi.kubevirt.io/v1beta1</a></li>
 <li><a href="#_listcdiconfigforallnamespaces">GET /apis/cdi.kubevirt.io/v1beta1/cdiconfigs</a></li>
 <li><a href="#_listcdiforallnamespaces">GET /apis/cdi.kubevirt.io/v1beta1/cdis</a></li>
 <li><a href="#_listdataimportcronforallnamespaces">GET /apis/cdi.kubevirt.io/v1beta1/dataimportcrons</a></li>
@@ -487,10 +486,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_watchnamespaceddatasource">GET /apis/cdi.kubevirt.io/v1beta1/watch/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/datasources</a></li>
 <li><a href="#_watchnamespaceddatavolume">GET /apis/cdi.kubevirt.io/v1beta1/watch/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/datavolumes</a></li>
 <li><a href="#_getuploadapigroup">GET /apis/upload.cdi.kubevirt.io</a></li>
-<li><a href="#_getapiresources-v1beta1">GET /apis/upload.cdi.kubevirt.io/v1beta1/</a></li>
+<li><a href="#_getapiresources-v1beta1">GET /apis/upload.cdi.kubevirt.io/v1beta1</a></li>
 <li><a href="#_createnamespaceduploadtokenrequest-v1beta1">POST /apis/upload.cdi.kubevirt.io/v1beta1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/uploadtokenrequests</a></li>
 <li><a href="#_healthzhandler">GET /healthz</a></li>
-<li><a href="#_func5">GET /openapi/v2</a></li>
 </ul>
 </li>
 </ul>
@@ -572,86 +570,15 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect2">
-<h3 id="_getuploadapis">GET /apis</h3>
+<h3 id="_getapigroup-cdi_kubevirt_io">GET /apis/cdi.kubevirt.io</h3>
 <div class="sect3">
 <h4 id="_description_2">Description</h4>
-<div class="paragraph">
-<p>Get a CDI API GroupList</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_responses_2">Responses</h4>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 10%;">
-<col style="width: 70%;">
-<col style="width: 20%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-middle">HTTP Code</th>
-<th class="tableblock halign-left valign-middle">Description</th>
-<th class="tableblock halign-left valign-middle">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><strong>200</strong></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>OK</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><a href="definitions.html#_v1_apigrouplist">v1.APIGroupList</a></p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><strong>401</strong></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>Unauthorized</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>No Content</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><strong>404</strong></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>Not Found</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect3">
-<h4 id="_produces_2">Produces</h4>
-<div class="ulist">
-<ul>
-<li>
-<p><code>application/json</code></p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_getapigroup-cdi_kubevirt_io">GET /apis/cdi.kubevirt.io/</h3>
-<div class="sect3">
-<h4 id="_description_3">Description</h4>
 <div class="paragraph">
 <p>Get a KubeVirt CDI API group</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_responses_3">Responses</h4>
+<h4 id="_responses_2">Responses</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 10%;">
@@ -703,7 +630,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="sect3">
-<h4 id="_produces_3">Produces</h4>
+<h4 id="_produces_2">Produces</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -714,15 +641,15 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect2">
-<h3 id="_getapiresources-cdi_kubevirt_io-v1beta1">GET /apis/cdi.kubevirt.io/v1beta1/</h3>
+<h3 id="_getapiresources-cdi_kubevirt_io-v1beta1">GET /apis/cdi.kubevirt.io/v1beta1</h3>
 <div class="sect3">
-<h4 id="_description_4">Description</h4>
+<h4 id="_description_3">Description</h4>
 <div class="paragraph">
 <p>Get KubeVirt API Resources</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_responses_4">Responses</h4>
+<h4 id="_responses_3">Responses</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 10%;">
@@ -774,7 +701,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="sect3">
-<h4 id="_produces_4">Produces</h4>
+<h4 id="_produces_3">Produces</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -787,13 +714,223 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect2">
 <h3 id="_listcdiconfigforallnamespaces">GET /apis/cdi.kubevirt.io/v1beta1/cdiconfigs</h3>
 <div class="sect3">
-<h4 id="_description_5">Description</h4>
+<h4 id="_description_4">Description</h4>
 <div class="paragraph">
 <p>Get a list of all CDIConfig objects.</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_parameters">Parameters</h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 16.6666%;">
+<col style="width: 50%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Type</th>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>Query</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>continue</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server the server will respond with a 410 ResourceExpired error indicating the client must restart their list without the continue field. This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>Query</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>fieldSelector</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>A selector to restrict the list of returned objects by their fields. Defaults to everything.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>Query</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>includeUninitialized</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>If true, partially initialized resources are included in the response.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>boolean</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>Query</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>labelSelector</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>A selector to restrict the list of returned objects by their labels. Defaults to everything</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>Query</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>limit</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>limit is a maximum number of responses to return for a list call. If more items exist, the server will set the <code>continue</code> field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.</p>
+</div>
+<div class="paragraph">
+<p>The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>integer</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>Query</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>resourceVersion</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>Query</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>timeoutSeconds</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>TimeoutSeconds for the list/watch call.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>integer</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>Query</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>watch</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>boolean</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_responses_4">Responses</h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 70%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">HTTP Code</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>200</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>OK</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><a href="definitions.html#_v1beta1_cdiconfiglist">v1beta1.CDIConfigList</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>401</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>Unauthorized</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_produces_4">Produces</h4>
+<div class="ulist">
+<ul>
+<li>
+<p><code>application/json</code></p>
+</li>
+<li>
+<p><code>application/yaml</code></p>
+</li>
+<li>
+<p><code>application/json;stream=watch</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_listcdiforallnamespaces">GET /apis/cdi.kubevirt.io/v1beta1/cdis</h3>
+<div class="sect3">
+<h4 id="_description_5">Description</h4>
+<div class="paragraph">
+<p>Get a list of all CDI objects.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_parameters_2">Parameters</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -960,7 +1097,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>OK</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><a href="definitions.html#_v1beta1_cdiconfiglist">v1beta1.CDIConfigList</a></p>
+<p><a href="definitions.html#_v1beta1_cdilist">v1beta1.CDIList</a></p>
 </div></div></td>
 </tr>
 <tr>
@@ -995,15 +1132,15 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect2">
-<h3 id="_listcdiforallnamespaces">GET /apis/cdi.kubevirt.io/v1beta1/cdis</h3>
+<h3 id="_listdataimportcronforallnamespaces">GET /apis/cdi.kubevirt.io/v1beta1/dataimportcrons</h3>
 <div class="sect3">
 <h4 id="_description_6">Description</h4>
 <div class="paragraph">
-<p>Get a list of all CDI objects.</p>
+<p>Get a list of all DataImportCron objects.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_2">Parameters</h4>
+<h4 id="_parameters_3">Parameters</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -1170,7 +1307,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>OK</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><a href="definitions.html#_v1beta1_cdilist">v1beta1.CDIList</a></p>
+<p><a href="definitions.html#_v1beta1_dataimportcronlist">v1beta1.DataImportCronList</a></p>
 </div></div></td>
 </tr>
 <tr>
@@ -1205,15 +1342,15 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect2">
-<h3 id="_listdataimportcronforallnamespaces">GET /apis/cdi.kubevirt.io/v1beta1/dataimportcrons</h3>
+<h3 id="_listdatasourceforallnamespaces">GET /apis/cdi.kubevirt.io/v1beta1/datasources</h3>
 <div class="sect3">
 <h4 id="_description_7">Description</h4>
 <div class="paragraph">
-<p>Get a list of all DataImportCron objects.</p>
+<p>Get a list of all DataSource objects.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_3">Parameters</h4>
+<h4 id="_parameters_4">Parameters</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -1380,7 +1517,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>OK</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><a href="definitions.html#_v1beta1_dataimportcronlist">v1beta1.DataImportCronList</a></p>
+<p><a href="definitions.html#_v1beta1_datasourcelist">v1beta1.DataSourceList</a></p>
 </div></div></td>
 </tr>
 <tr>
@@ -1415,15 +1552,15 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect2">
-<h3 id="_listdatasourceforallnamespaces">GET /apis/cdi.kubevirt.io/v1beta1/datasources</h3>
+<h3 id="_listdatavolumeforallnamespaces">GET /apis/cdi.kubevirt.io/v1beta1/datavolumes</h3>
 <div class="sect3">
 <h4 id="_description_8">Description</h4>
 <div class="paragraph">
-<p>Get a list of all DataSource objects.</p>
+<p>Get a list of all DataVolume objects.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_4">Parameters</h4>
+<h4 id="_parameters_5">Parameters</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -1590,7 +1727,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>OK</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><a href="definitions.html#_v1beta1_datasourcelist">v1beta1.DataSourceList</a></p>
+<p><a href="definitions.html#_v1beta1_datavolumelist">v1beta1.DataVolumeList</a></p>
 </div></div></td>
 </tr>
 <tr>
@@ -1625,219 +1762,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect2">
-<h3 id="_listdatavolumeforallnamespaces">GET /apis/cdi.kubevirt.io/v1beta1/datavolumes</h3>
-<div class="sect3">
-<h4 id="_description_9">Description</h4>
-<div class="paragraph">
-<p>Get a list of all DataVolume objects.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_parameters_5">Parameters</h4>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 11.1111%;">
-<col style="width: 16.6666%;">
-<col style="width: 50%;">
-<col style="width: 22.2223%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-middle">Type</th>
-<th class="tableblock halign-left valign-middle">Name</th>
-<th class="tableblock halign-left valign-middle">Description</th>
-<th class="tableblock halign-left valign-middle">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><strong>Query</strong></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><strong>continue</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server the server will respond with a 410 ResourceExpired error indicating the client must restart their list without the continue field. This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><strong>Query</strong></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><strong>fieldSelector</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>A selector to restrict the list of returned objects by their fields. Defaults to everything.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><strong>Query</strong></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><strong>includeUninitialized</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>If true, partially initialized resources are included in the response.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>boolean</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><strong>Query</strong></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><strong>labelSelector</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>A selector to restrict the list of returned objects by their labels. Defaults to everything</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><strong>Query</strong></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><strong>limit</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>limit is a maximum number of responses to return for a list call. If more items exist, the server will set the <code>continue</code> field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.</p>
-</div>
-<div class="paragraph">
-<p>The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>integer</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><strong>Query</strong></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><strong>resourceVersion</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><strong>Query</strong></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><strong>timeoutSeconds</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>TimeoutSeconds for the list/watch call.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>integer</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><strong>Query</strong></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><strong>watch</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>boolean</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect3">
-<h4 id="_responses_9">Responses</h4>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 10%;">
-<col style="width: 70%;">
-<col style="width: 20%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-middle">HTTP Code</th>
-<th class="tableblock halign-left valign-middle">Description</th>
-<th class="tableblock halign-left valign-middle">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><strong>200</strong></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>OK</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><a href="definitions.html#_v1beta1_datavolumelist">v1beta1.DataVolumeList</a></p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><strong>401</strong></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>Unauthorized</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect3">
-<h4 id="_produces_9">Produces</h4>
-<div class="ulist">
-<ul>
-<li>
-<p><code>application/json</code></p>
-</li>
-<li>
-<p><code>application/yaml</code></p>
-</li>
-<li>
-<p><code>application/json;stream=watch</code></p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect2">
 <h3 id="_createnamespacedcdiconfig">POST /apis/cdi.kubevirt.io/v1beta1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/cdiconfigs</h3>
 <div class="sect3">
-<h4 id="_description_10">Description</h4>
+<h4 id="_description_9">Description</h4>
 <div class="paragraph">
 <p>Create a CDIConfig object.</p>
 </div>
@@ -1892,7 +1819,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_10">Responses</h4>
+<h4 id="_responses_9">Responses</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 10%;">
@@ -1968,7 +1895,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect3">
-<h4 id="_produces_10">Produces</h4>
+<h4 id="_produces_9">Produces</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -1984,7 +1911,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect2">
 <h3 id="_listnamespacedcdiconfig">GET /apis/cdi.kubevirt.io/v1beta1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/cdiconfigs</h3>
 <div class="sect3">
-<h4 id="_description_11">Description</h4>
+<h4 id="_description_10">Description</h4>
 <div class="paragraph">
 <p>Get a list of CDIConfig objects.</p>
 </div>
@@ -2149,7 +2076,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_11">Responses</h4>
+<h4 id="_responses_10">Responses</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 10%;">
@@ -2190,7 +2117,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="sect3">
-<h4 id="_produces_11">Produces</h4>
+<h4 id="_produces_10">Produces</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -2209,7 +2136,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect2">
 <h3 id="_deletecollectionnamespacedcdiconfig">DELETE /apis/cdi.kubevirt.io/v1beta1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/cdiconfigs</h3>
 <div class="sect3">
-<h4 id="_description_12">Description</h4>
+<h4 id="_description_11">Description</h4>
 <div class="paragraph">
 <p>Delete a collection of CDIConfig objects.</p>
 </div>
@@ -2359,7 +2286,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_12">Responses</h4>
+<h4 id="_responses_11">Responses</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 10%;">
@@ -2400,7 +2327,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="sect3">
-<h4 id="_produces_12">Produces</h4>
+<h4 id="_produces_11">Produces</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -2416,7 +2343,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect2">
 <h3 id="_readnamespacedcdiconfig">GET /apis/cdi.kubevirt.io/v1beta1/namespaces/{namespace:[a-z0-9]<strong class="a-z0-9\-">}/cdiconfigs/{name:[a-z0-9][a-z0-9\-]</strong>}</h3>
 <div class="sect3">
-<h4 id="_description_13">Description</h4>
+<h4 id="_description_12">Description</h4>
 <div class="paragraph">
 <p>Get a CDIConfig object.</p>
 </div>
@@ -2503,7 +2430,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_13">Responses</h4>
+<h4 id="_responses_12">Responses</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 10%;">
@@ -2544,7 +2471,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="sect3">
-<h4 id="_produces_13">Produces</h4>
+<h4 id="_produces_12">Produces</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -2563,7 +2490,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect2">
 <h3 id="_replacenamespacedcdiconfig">PUT /apis/cdi.kubevirt.io/v1beta1/namespaces/{namespace:[a-z0-9]<strong class="a-z0-9\-">}/cdiconfigs/{name:[a-z0-9][a-z0-9\-]</strong>}</h3>
 <div class="sect3">
-<h4 id="_description_14">Description</h4>
+<h4 id="_description_13">Description</h4>
 <div class="paragraph">
 <p>Update a CDIConfig object.</p>
 </div>
@@ -2633,7 +2560,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_14">Responses</h4>
+<h4 id="_responses_13">Responses</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 10%;">
@@ -2698,7 +2625,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect3">
-<h4 id="_produces_14">Produces</h4>
+<h4 id="_produces_13">Produces</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -2714,7 +2641,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect2">
 <h3 id="_deletenamespacedcdiconfig">DELETE /apis/cdi.kubevirt.io/v1beta1/namespaces/{namespace:[a-z0-9]<strong class="a-z0-9\-">}/cdiconfigs/{name:[a-z0-9][a-z0-9\-]</strong>}</h3>
 <div class="sect3">
-<h4 id="_description_15">Description</h4>
+<h4 id="_description_14">Description</h4>
 <div class="paragraph">
 <p>Delete a CDIConfig object.</p>
 </div>
@@ -2829,7 +2756,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_15">Responses</h4>
+<h4 id="_responses_14">Responses</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 10%;">
@@ -2883,7 +2810,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect3">
-<h4 id="_produces_15">Produces</h4>
+<h4 id="_produces_14">Produces</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -2899,7 +2826,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect2">
 <h3 id="_patchnamespacedcdiconfig">PATCH /apis/cdi.kubevirt.io/v1beta1/namespaces/{namespace:[a-z0-9]<strong class="a-z0-9\-">}/cdiconfigs/{name:[a-z0-9][a-z0-9\-]</strong>}</h3>
 <div class="sect3">
-<h4 id="_description_16">Description</h4>
+<h4 id="_description_15">Description</h4>
 <div class="paragraph">
 <p>Patch a CDIConfig object.</p>
 </div>
@@ -2969,7 +2896,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_16">Responses</h4>
+<h4 id="_responses_15">Responses</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 10%;">
@@ -3023,7 +2950,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect3">
-<h4 id="_produces_16">Produces</h4>
+<h4 id="_produces_15">Produces</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -3036,7 +2963,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect2">
 <h3 id="_createnamespacedcdi">POST /apis/cdi.kubevirt.io/v1beta1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/cdis</h3>
 <div class="sect3">
-<h4 id="_description_17">Description</h4>
+<h4 id="_description_16">Description</h4>
 <div class="paragraph">
 <p>Create a CDI object.</p>
 </div>
@@ -3091,7 +3018,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_17">Responses</h4>
+<h4 id="_responses_16">Responses</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 10%;">
@@ -3167,7 +3094,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect3">
-<h4 id="_produces_17">Produces</h4>
+<h4 id="_produces_16">Produces</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -3183,7 +3110,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect2">
 <h3 id="_listnamespacedcdi">GET /apis/cdi.kubevirt.io/v1beta1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/cdis</h3>
 <div class="sect3">
-<h4 id="_description_18">Description</h4>
+<h4 id="_description_17">Description</h4>
 <div class="paragraph">
 <p>Get a list of CDI objects.</p>
 </div>
@@ -3348,7 +3275,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_18">Responses</h4>
+<h4 id="_responses_17">Responses</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 10%;">
@@ -3389,7 +3316,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="sect3">
-<h4 id="_produces_18">Produces</h4>
+<h4 id="_produces_17">Produces</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -3408,7 +3335,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect2">
 <h3 id="_deletecollectionnamespacedcdi">DELETE /apis/cdi.kubevirt.io/v1beta1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/cdis</h3>
 <div class="sect3">
-<h4 id="_description_19">Description</h4>
+<h4 id="_description_18">Description</h4>
 <div class="paragraph">
 <p>Delete a collection of CDI objects.</p>
 </div>
@@ -3558,7 +3485,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_19">Responses</h4>
+<h4 id="_responses_18">Responses</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 10%;">
@@ -3599,7 +3526,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="sect3">
-<h4 id="_produces_19">Produces</h4>
+<h4 id="_produces_18">Produces</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -3615,7 +3542,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect2">
 <h3 id="_readnamespacedcdi">GET /apis/cdi.kubevirt.io/v1beta1/namespaces/{namespace:[a-z0-9]<strong class="a-z0-9\-">}/cdis/{name:[a-z0-9][a-z0-9\-]</strong>}</h3>
 <div class="sect3">
-<h4 id="_description_20">Description</h4>
+<h4 id="_description_19">Description</h4>
 <div class="paragraph">
 <p>Get a CDI object.</p>
 </div>
@@ -3702,7 +3629,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_20">Responses</h4>
+<h4 id="_responses_19">Responses</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 10%;">
@@ -3743,7 +3670,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="sect3">
-<h4 id="_produces_20">Produces</h4>
+<h4 id="_produces_19">Produces</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -3762,7 +3689,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect2">
 <h3 id="_replacenamespacedcdi">PUT /apis/cdi.kubevirt.io/v1beta1/namespaces/{namespace:[a-z0-9]<strong class="a-z0-9\-">}/cdis/{name:[a-z0-9][a-z0-9\-]</strong>}</h3>
 <div class="sect3">
-<h4 id="_description_21">Description</h4>
+<h4 id="_description_20">Description</h4>
 <div class="paragraph">
 <p>Update a CDI object.</p>
 </div>
@@ -3832,7 +3759,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_21">Responses</h4>
+<h4 id="_responses_20">Responses</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 10%;">
@@ -3897,7 +3824,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect3">
-<h4 id="_produces_21">Produces</h4>
+<h4 id="_produces_20">Produces</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -3913,7 +3840,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect2">
 <h3 id="_deletenamespacedcdi">DELETE /apis/cdi.kubevirt.io/v1beta1/namespaces/{namespace:[a-z0-9]<strong class="a-z0-9\-">}/cdis/{name:[a-z0-9][a-z0-9\-]</strong>}</h3>
 <div class="sect3">
-<h4 id="_description_22">Description</h4>
+<h4 id="_description_21">Description</h4>
 <div class="paragraph">
 <p>Delete a CDI object.</p>
 </div>
@@ -4028,7 +3955,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_22">Responses</h4>
+<h4 id="_responses_21">Responses</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 10%;">
@@ -4082,7 +4009,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect3">
-<h4 id="_produces_22">Produces</h4>
+<h4 id="_produces_21">Produces</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -4098,7 +4025,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect2">
 <h3 id="_patchnamespacedcdi">PATCH /apis/cdi.kubevirt.io/v1beta1/namespaces/{namespace:[a-z0-9]<strong class="a-z0-9\-">}/cdis/{name:[a-z0-9][a-z0-9\-]</strong>}</h3>
 <div class="sect3">
-<h4 id="_description_23">Description</h4>
+<h4 id="_description_22">Description</h4>
 <div class="paragraph">
 <p>Patch a CDI object.</p>
 </div>
@@ -4168,7 +4095,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_23">Responses</h4>
+<h4 id="_responses_22">Responses</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 10%;">
@@ -4222,7 +4149,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect3">
-<h4 id="_produces_23">Produces</h4>
+<h4 id="_produces_22">Produces</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -4235,7 +4162,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect2">
 <h3 id="_createnamespaceddataimportcron">POST /apis/cdi.kubevirt.io/v1beta1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/dataimportcrons</h3>
 <div class="sect3">
-<h4 id="_description_24">Description</h4>
+<h4 id="_description_23">Description</h4>
 <div class="paragraph">
 <p>Create a DataImportCron object.</p>
 </div>
@@ -4290,7 +4217,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_24">Responses</h4>
+<h4 id="_responses_23">Responses</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 10%;">
@@ -4366,7 +4293,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect3">
-<h4 id="_produces_24">Produces</h4>
+<h4 id="_produces_23">Produces</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -4382,7 +4309,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect2">
 <h3 id="_listnamespaceddataimportcron">GET /apis/cdi.kubevirt.io/v1beta1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/dataimportcrons</h3>
 <div class="sect3">
-<h4 id="_description_25">Description</h4>
+<h4 id="_description_24">Description</h4>
 <div class="paragraph">
 <p>Get a list of DataImportCron objects.</p>
 </div>
@@ -4547,7 +4474,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_25">Responses</h4>
+<h4 id="_responses_24">Responses</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 10%;">
@@ -4588,7 +4515,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="sect3">
-<h4 id="_produces_25">Produces</h4>
+<h4 id="_produces_24">Produces</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -4607,7 +4534,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect2">
 <h3 id="_deletecollectionnamespaceddataimportcron">DELETE /apis/cdi.kubevirt.io/v1beta1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/dataimportcrons</h3>
 <div class="sect3">
-<h4 id="_description_26">Description</h4>
+<h4 id="_description_25">Description</h4>
 <div class="paragraph">
 <p>Delete a collection of DataImportCron objects.</p>
 </div>
@@ -4757,7 +4684,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_26">Responses</h4>
+<h4 id="_responses_25">Responses</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 10%;">
@@ -4798,7 +4725,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="sect3">
-<h4 id="_produces_26">Produces</h4>
+<h4 id="_produces_25">Produces</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -4814,7 +4741,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect2">
 <h3 id="_readnamespaceddataimportcron">GET /apis/cdi.kubevirt.io/v1beta1/namespaces/{namespace:[a-z0-9]<strong class="a-z0-9\-">}/dataimportcrons/{name:[a-z0-9][a-z0-9\-]</strong>}</h3>
 <div class="sect3">
-<h4 id="_description_27">Description</h4>
+<h4 id="_description_26">Description</h4>
 <div class="paragraph">
 <p>Get a DataImportCron object.</p>
 </div>
@@ -4901,7 +4828,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_27">Responses</h4>
+<h4 id="_responses_26">Responses</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 10%;">
@@ -4942,7 +4869,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="sect3">
-<h4 id="_produces_27">Produces</h4>
+<h4 id="_produces_26">Produces</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -4961,7 +4888,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect2">
 <h3 id="_replacenamespaceddataimportcron">PUT /apis/cdi.kubevirt.io/v1beta1/namespaces/{namespace:[a-z0-9]<strong class="a-z0-9\-">}/dataimportcrons/{name:[a-z0-9][a-z0-9\-]</strong>}</h3>
 <div class="sect3">
-<h4 id="_description_28">Description</h4>
+<h4 id="_description_27">Description</h4>
 <div class="paragraph">
 <p>Update a DataImportCron object.</p>
 </div>
@@ -5031,7 +4958,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_28">Responses</h4>
+<h4 id="_responses_27">Responses</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 10%;">
@@ -5096,7 +5023,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect3">
-<h4 id="_produces_28">Produces</h4>
+<h4 id="_produces_27">Produces</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -5112,7 +5039,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect2">
 <h3 id="_deletenamespaceddataimportcron">DELETE /apis/cdi.kubevirt.io/v1beta1/namespaces/{namespace:[a-z0-9]<strong class="a-z0-9\-">}/dataimportcrons/{name:[a-z0-9][a-z0-9\-]</strong>}</h3>
 <div class="sect3">
-<h4 id="_description_29">Description</h4>
+<h4 id="_description_28">Description</h4>
 <div class="paragraph">
 <p>Delete a DataImportCron object.</p>
 </div>
@@ -5227,7 +5154,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_29">Responses</h4>
+<h4 id="_responses_28">Responses</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 10%;">
@@ -5281,7 +5208,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect3">
-<h4 id="_produces_29">Produces</h4>
+<h4 id="_produces_28">Produces</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -5297,7 +5224,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect2">
 <h3 id="_patchnamespaceddataimportcron">PATCH /apis/cdi.kubevirt.io/v1beta1/namespaces/{namespace:[a-z0-9]<strong class="a-z0-9\-">}/dataimportcrons/{name:[a-z0-9][a-z0-9\-]</strong>}</h3>
 <div class="sect3">
-<h4 id="_description_30">Description</h4>
+<h4 id="_description_29">Description</h4>
 <div class="paragraph">
 <p>Patch a DataImportCron object.</p>
 </div>
@@ -5367,7 +5294,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_30">Responses</h4>
+<h4 id="_responses_29">Responses</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 10%;">
@@ -5421,7 +5348,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect3">
-<h4 id="_produces_30">Produces</h4>
+<h4 id="_produces_29">Produces</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -5434,7 +5361,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect2">
 <h3 id="_createnamespaceddatasource">POST /apis/cdi.kubevirt.io/v1beta1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/datasources</h3>
 <div class="sect3">
-<h4 id="_description_31">Description</h4>
+<h4 id="_description_30">Description</h4>
 <div class="paragraph">
 <p>Create a DataSource object.</p>
 </div>
@@ -5489,7 +5416,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_31">Responses</h4>
+<h4 id="_responses_30">Responses</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 10%;">
@@ -5565,7 +5492,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect3">
-<h4 id="_produces_31">Produces</h4>
+<h4 id="_produces_30">Produces</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -5581,7 +5508,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect2">
 <h3 id="_listnamespaceddatasource">GET /apis/cdi.kubevirt.io/v1beta1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/datasources</h3>
 <div class="sect3">
-<h4 id="_description_32">Description</h4>
+<h4 id="_description_31">Description</h4>
 <div class="paragraph">
 <p>Get a list of DataSource objects.</p>
 </div>
@@ -5746,7 +5673,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_32">Responses</h4>
+<h4 id="_responses_31">Responses</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 10%;">
@@ -5787,7 +5714,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="sect3">
-<h4 id="_produces_32">Produces</h4>
+<h4 id="_produces_31">Produces</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -5806,7 +5733,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect2">
 <h3 id="_deletecollectionnamespaceddatasource">DELETE /apis/cdi.kubevirt.io/v1beta1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/datasources</h3>
 <div class="sect3">
-<h4 id="_description_33">Description</h4>
+<h4 id="_description_32">Description</h4>
 <div class="paragraph">
 <p>Delete a collection of DataSource objects.</p>
 </div>
@@ -5956,7 +5883,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_33">Responses</h4>
+<h4 id="_responses_32">Responses</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 10%;">
@@ -5997,7 +5924,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="sect3">
-<h4 id="_produces_33">Produces</h4>
+<h4 id="_produces_32">Produces</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -6013,7 +5940,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect2">
 <h3 id="_readnamespaceddatasource">GET /apis/cdi.kubevirt.io/v1beta1/namespaces/{namespace:[a-z0-9]<strong class="a-z0-9\-">}/datasources/{name:[a-z0-9][a-z0-9\-]</strong>}</h3>
 <div class="sect3">
-<h4 id="_description_34">Description</h4>
+<h4 id="_description_33">Description</h4>
 <div class="paragraph">
 <p>Get a DataSource object.</p>
 </div>
@@ -6100,7 +6027,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_34">Responses</h4>
+<h4 id="_responses_33">Responses</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 10%;">
@@ -6141,7 +6068,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="sect3">
-<h4 id="_produces_34">Produces</h4>
+<h4 id="_produces_33">Produces</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -6160,7 +6087,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect2">
 <h3 id="_replacenamespaceddatasource">PUT /apis/cdi.kubevirt.io/v1beta1/namespaces/{namespace:[a-z0-9]<strong class="a-z0-9\-">}/datasources/{name:[a-z0-9][a-z0-9\-]</strong>}</h3>
 <div class="sect3">
-<h4 id="_description_35">Description</h4>
+<h4 id="_description_34">Description</h4>
 <div class="paragraph">
 <p>Update a DataSource object.</p>
 </div>
@@ -6230,7 +6157,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_35">Responses</h4>
+<h4 id="_responses_34">Responses</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 10%;">
@@ -6295,7 +6222,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect3">
-<h4 id="_produces_35">Produces</h4>
+<h4 id="_produces_34">Produces</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -6311,7 +6238,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect2">
 <h3 id="_deletenamespaceddatasource">DELETE /apis/cdi.kubevirt.io/v1beta1/namespaces/{namespace:[a-z0-9]<strong class="a-z0-9\-">}/datasources/{name:[a-z0-9][a-z0-9\-]</strong>}</h3>
 <div class="sect3">
-<h4 id="_description_36">Description</h4>
+<h4 id="_description_35">Description</h4>
 <div class="paragraph">
 <p>Delete a DataSource object.</p>
 </div>
@@ -6426,7 +6353,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_36">Responses</h4>
+<h4 id="_responses_35">Responses</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 10%;">
@@ -6480,7 +6407,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect3">
-<h4 id="_produces_36">Produces</h4>
+<h4 id="_produces_35">Produces</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -6496,7 +6423,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect2">
 <h3 id="_patchnamespaceddatasource">PATCH /apis/cdi.kubevirt.io/v1beta1/namespaces/{namespace:[a-z0-9]<strong class="a-z0-9\-">}/datasources/{name:[a-z0-9][a-z0-9\-]</strong>}</h3>
 <div class="sect3">
-<h4 id="_description_37">Description</h4>
+<h4 id="_description_36">Description</h4>
 <div class="paragraph">
 <p>Patch a DataSource object.</p>
 </div>
@@ -6566,7 +6493,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_37">Responses</h4>
+<h4 id="_responses_36">Responses</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 10%;">
@@ -6620,7 +6547,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect3">
-<h4 id="_produces_37">Produces</h4>
+<h4 id="_produces_36">Produces</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -6633,7 +6560,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect2">
 <h3 id="_createnamespaceddatavolume">POST /apis/cdi.kubevirt.io/v1beta1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/datavolumes</h3>
 <div class="sect3">
-<h4 id="_description_38">Description</h4>
+<h4 id="_description_37">Description</h4>
 <div class="paragraph">
 <p>Create a DataVolume object.</p>
 </div>
@@ -6688,7 +6615,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_38">Responses</h4>
+<h4 id="_responses_37">Responses</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 10%;">
@@ -6764,7 +6691,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect3">
-<h4 id="_produces_38">Produces</h4>
+<h4 id="_produces_37">Produces</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -6780,7 +6707,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect2">
 <h3 id="_listnamespaceddatavolume">GET /apis/cdi.kubevirt.io/v1beta1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/datavolumes</h3>
 <div class="sect3">
-<h4 id="_description_39">Description</h4>
+<h4 id="_description_38">Description</h4>
 <div class="paragraph">
 <p>Get a list of DataVolume objects.</p>
 </div>
@@ -6945,7 +6872,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_39">Responses</h4>
+<h4 id="_responses_38">Responses</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 10%;">
@@ -6986,7 +6913,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="sect3">
-<h4 id="_produces_39">Produces</h4>
+<h4 id="_produces_38">Produces</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -7005,7 +6932,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect2">
 <h3 id="_deletecollectionnamespaceddatavolume">DELETE /apis/cdi.kubevirt.io/v1beta1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/datavolumes</h3>
 <div class="sect3">
-<h4 id="_description_40">Description</h4>
+<h4 id="_description_39">Description</h4>
 <div class="paragraph">
 <p>Delete a collection of DataVolume objects.</p>
 </div>
@@ -7155,7 +7082,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_40">Responses</h4>
+<h4 id="_responses_39">Responses</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 10%;">
@@ -7196,7 +7123,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="sect3">
-<h4 id="_produces_40">Produces</h4>
+<h4 id="_produces_39">Produces</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -7212,7 +7139,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect2">
 <h3 id="_readnamespaceddatavolume">GET /apis/cdi.kubevirt.io/v1beta1/namespaces/{namespace:[a-z0-9]<strong class="a-z0-9\-">}/datavolumes/{name:[a-z0-9][a-z0-9\-]</strong>}</h3>
 <div class="sect3">
-<h4 id="_description_41">Description</h4>
+<h4 id="_description_40">Description</h4>
 <div class="paragraph">
 <p>Get a DataVolume object.</p>
 </div>
@@ -7299,7 +7226,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_41">Responses</h4>
+<h4 id="_responses_40">Responses</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 10%;">
@@ -7340,7 +7267,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="sect3">
-<h4 id="_produces_41">Produces</h4>
+<h4 id="_produces_40">Produces</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -7359,7 +7286,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect2">
 <h3 id="_replacenamespaceddatavolume">PUT /apis/cdi.kubevirt.io/v1beta1/namespaces/{namespace:[a-z0-9]<strong class="a-z0-9\-">}/datavolumes/{name:[a-z0-9][a-z0-9\-]</strong>}</h3>
 <div class="sect3">
-<h4 id="_description_42">Description</h4>
+<h4 id="_description_41">Description</h4>
 <div class="paragraph">
 <p>Update a DataVolume object.</p>
 </div>
@@ -7429,7 +7356,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_42">Responses</h4>
+<h4 id="_responses_41">Responses</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 10%;">
@@ -7494,7 +7421,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect3">
-<h4 id="_produces_42">Produces</h4>
+<h4 id="_produces_41">Produces</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -7510,7 +7437,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect2">
 <h3 id="_deletenamespaceddatavolume">DELETE /apis/cdi.kubevirt.io/v1beta1/namespaces/{namespace:[a-z0-9]<strong class="a-z0-9\-">}/datavolumes/{name:[a-z0-9][a-z0-9\-]</strong>}</h3>
 <div class="sect3">
-<h4 id="_description_43">Description</h4>
+<h4 id="_description_42">Description</h4>
 <div class="paragraph">
 <p>Delete a DataVolume object.</p>
 </div>
@@ -7625,7 +7552,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_43">Responses</h4>
+<h4 id="_responses_42">Responses</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 10%;">
@@ -7679,7 +7606,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect3">
-<h4 id="_produces_43">Produces</h4>
+<h4 id="_produces_42">Produces</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -7695,7 +7622,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect2">
 <h3 id="_patchnamespaceddatavolume">PATCH /apis/cdi.kubevirt.io/v1beta1/namespaces/{namespace:[a-z0-9]<strong class="a-z0-9\-">}/datavolumes/{name:[a-z0-9][a-z0-9\-]</strong>}</h3>
 <div class="sect3">
-<h4 id="_description_44">Description</h4>
+<h4 id="_description_43">Description</h4>
 <div class="paragraph">
 <p>Patch a DataVolume object.</p>
 </div>
@@ -7765,7 +7692,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_44">Responses</h4>
+<h4 id="_responses_43">Responses</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 10%;">
@@ -7819,7 +7746,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect3">
-<h4 id="_produces_44">Produces</h4>
+<h4 id="_produces_43">Produces</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -7832,13 +7759,217 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect2">
 <h3 id="_watchcdiconfiglistforallnamespaces">GET /apis/cdi.kubevirt.io/v1beta1/watch/cdiconfigs</h3>
 <div class="sect3">
-<h4 id="_description_45">Description</h4>
+<h4 id="_description_44">Description</h4>
 <div class="paragraph">
 <p>Watch a CDIConfigList object.</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_parameters_41">Parameters</h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 16.6666%;">
+<col style="width: 50%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Type</th>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>Query</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>continue</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server the server will respond with a 410 ResourceExpired error indicating the client must restart their list without the continue field. This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>Query</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>fieldSelector</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>A selector to restrict the list of returned objects by their fields. Defaults to everything.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>Query</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>includeUninitialized</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>If true, partially initialized resources are included in the response.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>boolean</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>Query</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>labelSelector</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>A selector to restrict the list of returned objects by their labels. Defaults to everything</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>Query</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>limit</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>limit is a maximum number of responses to return for a list call. If more items exist, the server will set the <code>continue</code> field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.</p>
+</div>
+<div class="paragraph">
+<p>The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>integer</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>Query</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>resourceVersion</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>Query</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>timeoutSeconds</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>TimeoutSeconds for the list/watch call.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>integer</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>Query</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>watch</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>boolean</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_responses_44">Responses</h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 70%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">HTTP Code</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>200</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>OK</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><a href="definitions.html#_v1_watchevent">v1.WatchEvent</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>401</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>Unauthorized</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_produces_44">Produces</h4>
+<div class="ulist">
+<ul>
+<li>
+<p><code>application/json</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_watchcdilistforallnamespaces">GET /apis/cdi.kubevirt.io/v1beta1/watch/cdis</h3>
+<div class="sect3">
+<h4 id="_description_45">Description</h4>
+<div class="paragraph">
+<p>Watch a CDIList object.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_parameters_42">Parameters</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -8034,15 +8165,15 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect2">
-<h3 id="_watchcdilistforallnamespaces">GET /apis/cdi.kubevirt.io/v1beta1/watch/cdis</h3>
+<h3 id="_watchdataimportcronlistforallnamespaces">GET /apis/cdi.kubevirt.io/v1beta1/watch/dataimportcrons</h3>
 <div class="sect3">
 <h4 id="_description_46">Description</h4>
 <div class="paragraph">
-<p>Watch a CDIList object.</p>
+<p>Watch a DataImportCronList object.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_42">Parameters</h4>
+<h4 id="_parameters_43">Parameters</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -8238,15 +8369,15 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect2">
-<h3 id="_watchdataimportcronlistforallnamespaces">GET /apis/cdi.kubevirt.io/v1beta1/watch/dataimportcrons</h3>
+<h3 id="_watchdatasourcelistforallnamespaces">GET /apis/cdi.kubevirt.io/v1beta1/watch/datasources</h3>
 <div class="sect3">
 <h4 id="_description_47">Description</h4>
 <div class="paragraph">
-<p>Watch a DataImportCronList object.</p>
+<p>Watch a DataSourceList object.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_43">Parameters</h4>
+<h4 id="_parameters_44">Parameters</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -8442,15 +8573,15 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect2">
-<h3 id="_watchdatasourcelistforallnamespaces">GET /apis/cdi.kubevirt.io/v1beta1/watch/datasources</h3>
+<h3 id="_watchdatavolumelistforallnamespaces">GET /apis/cdi.kubevirt.io/v1beta1/watch/datavolumes</h3>
 <div class="sect3">
 <h4 id="_description_48">Description</h4>
 <div class="paragraph">
-<p>Watch a DataSourceList object.</p>
+<p>Watch a DataVolumeList object.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_44">Parameters</h4>
+<h4 id="_parameters_45">Parameters</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -8646,15 +8777,15 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect2">
-<h3 id="_watchdatavolumelistforallnamespaces">GET /apis/cdi.kubevirt.io/v1beta1/watch/datavolumes</h3>
+<h3 id="_watchnamespacedcdiconfig">GET /apis/cdi.kubevirt.io/v1beta1/watch/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/cdiconfigs</h3>
 <div class="sect3">
 <h4 id="_description_49">Description</h4>
 <div class="paragraph">
-<p>Watch a DataVolumeList object.</p>
+<p>Watch a CDIConfig object.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_45">Parameters</h4>
+<h4 id="_parameters_46">Parameters</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -8671,6 +8802,21 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tr>
 </thead>
 <tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>Path</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>namespace</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>Object name and auth scope, such as for teams and projects</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p><strong>Query</strong></p>
@@ -8850,15 +8996,15 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect2">
-<h3 id="_watchnamespacedcdiconfig">GET /apis/cdi.kubevirt.io/v1beta1/watch/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/cdiconfigs</h3>
+<h3 id="_watchnamespacedcdi">GET /apis/cdi.kubevirt.io/v1beta1/watch/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/cdis</h3>
 <div class="sect3">
 <h4 id="_description_50">Description</h4>
 <div class="paragraph">
-<p>Watch a CDIConfig object.</p>
+<p>Watch a CDI object.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_46">Parameters</h4>
+<h4 id="_parameters_47">Parameters</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -9069,15 +9215,15 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect2">
-<h3 id="_watchnamespacedcdi">GET /apis/cdi.kubevirt.io/v1beta1/watch/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/cdis</h3>
+<h3 id="_watchnamespaceddataimportcron">GET /apis/cdi.kubevirt.io/v1beta1/watch/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/dataimportcrons</h3>
 <div class="sect3">
 <h4 id="_description_51">Description</h4>
 <div class="paragraph">
-<p>Watch a CDI object.</p>
+<p>Watch a DataImportCron object.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_47">Parameters</h4>
+<h4 id="_parameters_48">Parameters</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -9288,15 +9434,15 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect2">
-<h3 id="_watchnamespaceddataimportcron">GET /apis/cdi.kubevirt.io/v1beta1/watch/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/dataimportcrons</h3>
+<h3 id="_watchnamespaceddatasource">GET /apis/cdi.kubevirt.io/v1beta1/watch/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/datasources</h3>
 <div class="sect3">
 <h4 id="_description_52">Description</h4>
 <div class="paragraph">
-<p>Watch a DataImportCron object.</p>
+<p>Watch a DataSource object.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_48">Parameters</h4>
+<h4 id="_parameters_49">Parameters</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -9507,15 +9653,15 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect2">
-<h3 id="_watchnamespaceddatasource">GET /apis/cdi.kubevirt.io/v1beta1/watch/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/datasources</h3>
+<h3 id="_watchnamespaceddatavolume">GET /apis/cdi.kubevirt.io/v1beta1/watch/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/datavolumes</h3>
 <div class="sect3">
 <h4 id="_description_53">Description</h4>
 <div class="paragraph">
-<p>Watch a DataSource object.</p>
+<p>Watch a DataVolume object.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_49">Parameters</h4>
+<h4 id="_parameters_50">Parameters</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -9726,234 +9872,15 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect2">
-<h3 id="_watchnamespaceddatavolume">GET /apis/cdi.kubevirt.io/v1beta1/watch/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/datavolumes</h3>
-<div class="sect3">
-<h4 id="_description_54">Description</h4>
-<div class="paragraph">
-<p>Watch a DataVolume object.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_parameters_50">Parameters</h4>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 11.1111%;">
-<col style="width: 16.6666%;">
-<col style="width: 50%;">
-<col style="width: 22.2223%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-middle">Type</th>
-<th class="tableblock halign-left valign-middle">Name</th>
-<th class="tableblock halign-left valign-middle">Description</th>
-<th class="tableblock halign-left valign-middle">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><strong>Path</strong></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><strong>namespace</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>Object name and auth scope, such as for teams and projects</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><strong>Query</strong></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><strong>continue</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server the server will respond with a 410 ResourceExpired error indicating the client must restart their list without the continue field. This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><strong>Query</strong></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><strong>fieldSelector</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>A selector to restrict the list of returned objects by their fields. Defaults to everything.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><strong>Query</strong></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><strong>includeUninitialized</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>If true, partially initialized resources are included in the response.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>boolean</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><strong>Query</strong></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><strong>labelSelector</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>A selector to restrict the list of returned objects by their labels. Defaults to everything</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><strong>Query</strong></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><strong>limit</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>limit is a maximum number of responses to return for a list call. If more items exist, the server will set the <code>continue</code> field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.</p>
-</div>
-<div class="paragraph">
-<p>The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>integer</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><strong>Query</strong></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><strong>resourceVersion</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><strong>Query</strong></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><strong>timeoutSeconds</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>TimeoutSeconds for the list/watch call.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>integer</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><strong>Query</strong></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><strong>watch</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>boolean</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect3">
-<h4 id="_responses_54">Responses</h4>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 10%;">
-<col style="width: 70%;">
-<col style="width: 20%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-middle">HTTP Code</th>
-<th class="tableblock halign-left valign-middle">Description</th>
-<th class="tableblock halign-left valign-middle">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><strong>200</strong></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>OK</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><a href="definitions.html#_v1_watchevent">v1.WatchEvent</a></p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><strong>401</strong></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>Unauthorized</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect3">
-<h4 id="_produces_54">Produces</h4>
-<div class="ulist">
-<ul>
-<li>
-<p><code>application/json</code></p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect2">
 <h3 id="_getuploadapigroup">GET /apis/upload.cdi.kubevirt.io</h3>
 <div class="sect3">
-<h4 id="_description_55">Description</h4>
+<h4 id="_description_54">Description</h4>
 <div class="paragraph">
 <p>Get a CDI API Group</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_responses_55">Responses</h4>
+<h4 id="_responses_54">Responses</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 10%;">
@@ -10005,7 +9932,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="sect3">
-<h4 id="_produces_55">Produces</h4>
+<h4 id="_produces_54">Produces</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -10016,15 +9943,15 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect2">
-<h3 id="_getapiresources-v1beta1">GET /apis/upload.cdi.kubevirt.io/v1beta1/</h3>
+<h3 id="_getapiresources-v1beta1">GET /apis/upload.cdi.kubevirt.io/v1beta1</h3>
 <div class="sect3">
-<h4 id="_description_56">Description</h4>
+<h4 id="_description_55">Description</h4>
 <div class="paragraph">
 <p>Get a CDI API resources</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_responses_56">Responses</h4>
+<h4 id="_responses_55">Responses</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 10%;">
@@ -10076,7 +10003,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="sect3">
-<h4 id="_produces_56">Produces</h4>
+<h4 id="_produces_55">Produces</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -10089,7 +10016,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect2">
 <h3 id="_createnamespaceduploadtokenrequest-v1beta1">POST /apis/upload.cdi.kubevirt.io/v1beta1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/uploadtokenrequests</h3>
 <div class="sect3">
-<h4 id="_description_57">Description</h4>
+<h4 id="_description_56">Description</h4>
 <div class="paragraph">
 <p>Create an UploadTokenRequest object.</p>
 </div>
@@ -10144,7 +10071,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_57">Responses</h4>
+<h4 id="_responses_56">Responses</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 10%;">
@@ -10217,7 +10144,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect3">
-<h4 id="_produces_57">Produces</h4>
+<h4 id="_produces_56">Produces</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -10230,7 +10157,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect2">
 <h3 id="_healthzhandler">GET /healthz</h3>
 <div class="sect3">
-<h4 id="_responses_58">Responses</h4>
+<h4 id="_responses_57">Responses</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 10%;">
@@ -10258,59 +10185,6 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tr>
 </tbody>
 </table>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_func5">GET /openapi/v2</h3>
-<div class="sect3">
-<h4 id="_responses_59">Responses</h4>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 10%;">
-<col style="width: 70%;">
-<col style="width: 20%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-middle">HTTP Code</th>
-<th class="tableblock halign-left valign-middle">Description</th>
-<th class="tableblock halign-left valign-middle">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><strong>401</strong></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>Unauthorized</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>No Content</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect3">
-<h4 id="_consumes_22">Consumes</h4>
-<div class="ulist">
-<ul>
-<li>
-<p><code>application/json</code></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_produces_58">Produces</h4>
-<div class="ulist">
-<ul>
-<li>
-<p><code>application/json</code></p>
-</li>
-</ul>
-</div>
 </div>
 </div>
 </div>
