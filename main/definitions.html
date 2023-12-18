@@ -492,6 +492,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1beta1_cdispec">v1beta1.CDISpec</a></li>
 <li><a href="#_v1beta1_cdistatus">v1beta1.CDIStatus</a></li>
 <li><a href="#_v1beta1_certconfig">v1beta1.CertConfig</a></li>
+<li><a href="#_v1beta1_componentconfig">v1beta1.ComponentConfig</a></li>
 <li><a href="#_v1beta1_dataimportcron">v1beta1.DataImportCron</a></li>
 <li><a href="#_v1beta1_dataimportcroncondition">v1beta1.DataImportCronCondition</a></li>
 <li><a href="#_v1beta1_dataimportcronlist">v1beta1.DataImportCronList</a></li>
@@ -4433,10 +4434,10 @@ Currently unsupported.
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>Rules on which nodes CDI infrastructure pods will be scheduled</p>
+<p>Selectors and tolerations that should apply to cdi infrastructure components</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><a href="#_api_nodeplacement">api.NodePlacement</a></p>
+<p><a href="#_v1beta1_componentconfig">v1beta1.ComponentConfig</a></p>
 </div></div></td>
 </tr>
 <tr>
@@ -4599,6 +4600,100 @@ Currently unsupported.
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p><a href="#_v1_duration">v1.Duration</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_v1beta1_componentconfig">v1beta1.ComponentConfig</h3>
+<div class="paragraph">
+<p>ComponentConfig defines the scheduling and replicas configuration for CDI components</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>affinity</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>affinity enables pod affinity/anti-affinity placement expanding the types of constraints that can be expressed with nodeSelector. affinity is going to be applied to the relevant kind of pods in parallel with nodeSelector See <a href="https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity" class="bare">https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity</a></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><a href="#_v1_affinity">v1.Affinity</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>apiServerReplicas</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>ApiserverReplicas set Replicas for cdi-apiserver</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>integer (int32)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>deploymentReplicas</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>DeploymentReplicas set Replicas for cdi-deployment</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>integer (int32)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>nodeSelector</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>nodeSelector is the node selector applied to the relevant kind of pods It specifies a map of key-value pairs: for the pod to be eligible to run on a node, the node must have each of the indicated key-value pairs as labels (it can have additional labels as well). See <a href="https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#nodeselector" class="bare">https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#nodeselector</a></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>&lt; string, string &gt; map</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>tolerations</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>tolerations is a list of tolerations applied to the relevant kind of pods See <a href="https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/" class="bare">https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/</a> for more info. These are additional tolerations other than default ones.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>&lt; <a href="#_v1_toleration">v1.Toleration</a> &gt; array</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>uploadProxyReplicas</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>UploadproxyReplicas set Replicas for cdi-uploadproxy</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>integer (int32)</p>
 </div></div></td>
 </tr>
 </tbody>
