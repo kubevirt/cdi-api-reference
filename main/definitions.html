@@ -475,6 +475,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1_toleration">v1.Toleration</a></li>
 <li><a href="#_v1_typedlocalobjectreference">v1.TypedLocalObjectReference</a></li>
 <li><a href="#_v1_typedobjectreference">v1.TypedObjectReference</a></li>
+<li><a href="#_v1_volumeresourcerequirements">v1.VolumeResourceRequirements</a></li>
 <li><a href="#_v1_watchevent">v1.WatchEvent</a></li>
 <li><a href="#_v1_weightedpodaffinityterm">v1.WeightedPodAffinityTerm</a></li>
 <li><a href="#_v1beta1_cdi">v1beta1.CDI</a></li>
@@ -1664,7 +1665,8 @@ type PluginA struct {
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>Name of the referent. More info: <a href="https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names" class="bare">https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names</a></p>
+<p>Name of the referent. This field is effectively required, but due to backwards compatibility is allowed to be empty. Instances of this type with an empty value here are almost certainly wrong. More info: <a href="https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names" class="bare">https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names</a><br>
+<strong>Default</strong> : <code>""</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p>string</p>
@@ -2332,7 +2334,7 @@ type PluginA struct {
 <p>accessModes contains the desired access modes the volume should have. More info: <a href="https://kubernetes.io/docs/concepts/storage/persistent-volumes#access-modes-1" class="bare">https://kubernetes.io/docs/concepts/storage/persistent-volumes#access-modes-1</a></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>&lt; string &gt; array</p>
+<p>&lt; enum (ReadOnlyMany, ReadWriteMany, ReadWriteOnce, ReadWriteOncePod) &gt; array</p>
 </div></div></td>
 </tr>
 <tr>
@@ -2375,7 +2377,7 @@ type PluginA struct {
 <p>resources represents the minimum resources the volume should have. If RecoverVolumeExpansionFailure feature is enabled users are allowed to specify resource requirements that are lower than previous value but must still be higher than capacity recorded in the status field of the claim. More info: <a href="https://kubernetes.io/docs/concepts/storage/persistent-volumes#resources" class="bare">https://kubernetes.io/docs/concepts/storage/persistent-volumes#resources</a></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><a href="#_v1_resourcerequirements">v1.ResourceRequirements</a></p>
+<p><a href="#_v1_volumeresourcerequirements">v1.VolumeResourceRequirements</a></p>
 </div></div></td>
 </tr>
 <tr>
@@ -2397,6 +2399,18 @@ type PluginA struct {
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p>storageClassName is the name of the StorageClass required by the claim. More info: <a href="https://kubernetes.io/docs/concepts/storage/persistent-volumes#class-1" class="bare">https://kubernetes.io/docs/concepts/storage/persistent-volumes#class-1</a></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>volumeAttributesClassName</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>volumeAttributesClassName may be used to set the VolumeAttributesClass used by this claim. If specified, the CSI driver will create or update the volume with the attributes defined in the corresponding VolumeAttributesClass. This has a different purpose than storageClassName, it can be changed after the claim is created. An empty string value means that no VolumeAttributesClass will be applied to the claim but it&#8217;s not allowed to reset this field to empty string once it is set. If unspecified and the PersistentVolumeClaim is unbound, the default VolumeAttributesClass will be set by the persistentvolume controller if it exists. If the resource referred to by volumeAttributesClass does not exist, this PersistentVolumeClaim will be set to a Pending state, as reflected by the modifyVolumeStatus field, until such as a resource exists. More info: <a href="https://kubernetes.io/docs/concepts/storage/volume-attributes-classes/" class="bare">https://kubernetes.io/docs/concepts/storage/volume-attributes-classes/</a> (Alpha) Using this field requires the VolumeAttributesClass feature gate to be enabled.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p>string</p>
@@ -2506,10 +2520,34 @@ type PluginA struct {
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>A label query over a set of resources, in this case pods.</p>
+<p>A label query over a set of resources, in this case pods. If it&#8217;s null, this PodAffinityTerm matches with no Pods.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p><a href="#_v1_labelselector">v1.LabelSelector</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>matchLabelKeys</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>MatchLabelKeys is a set of pod label keys to select which pods will be taken into consideration. The keys are used to lookup values from the incoming pod labels, those key-value labels are merged with <code>labelSelector</code> as <code>key in (value)</code> to select the group of existing pods which pods will be taken into consideration for the incoming pod&#8217;s pod (anti) affinity. Keys that don&#8217;t exist in the incoming pod labels will be ignored. The default value is empty. The same key is forbidden to exist in both matchLabelKeys and labelSelector. Also, matchLabelKeys cannot be set when labelSelector isn&#8217;t set. This is an alpha field and requires enabling MatchLabelKeysInPodAffinity feature gate.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>&lt; string &gt; array</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>mismatchLabelKeys</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>MismatchLabelKeys is a set of pod label keys to select which pods will be taken into consideration. The keys are used to lookup values from the incoming pod labels, those key-value labels are merged with <code>labelSelector</code> as <code>key notin (value)</code> to select the group of existing pods which pods will be taken into consideration for the incoming pod&#8217;s pod (anti) affinity. Keys that don&#8217;t exist in the incoming pod labels will be ignored. The default value is empty. The same key is forbidden to exist in both mismatchLabelKeys and labelSelector. Also, mismatchLabelKeys cannot be set when labelSelector isn&#8217;t set. This is an alpha field and requires enabling MatchLabelKeysInPodAffinity feature gate.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>&lt; string &gt; array</p>
 </div></div></td>
 </tr>
 <tr>
@@ -3373,6 +3411,52 @@ type PluginA struct {
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_v1_volumeresourcerequirements">v1.VolumeResourceRequirements</h3>
+<div class="paragraph">
+<p>VolumeResourceRequirements describes the storage resource requirements for a volume.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>limits</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>Limits describes the maximum amount of compute resources allowed. More info: <a href="https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/" class="bare">https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/</a></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>&lt; string, <a href="#_resource_quantity">resource.Quantity</a> &gt; map</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>requests</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>Requests describes the minimum amount of compute resources required. If Requests is omitted for a container, it defaults to Limits if that is explicitly specified, otherwise to an implementation-defined value. Requests cannot exceed Limits. More info: <a href="https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/" class="bare">https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/</a></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>&lt; string, <a href="#_resource_quantity">resource.Quantity</a> &gt; map</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -6886,7 +6970,7 @@ data:
 <p>AccessModes contains the desired access modes the volume should have. More info: <a href="https://kubernetes.io/docs/concepts/storage/persistent-volumes#access-modes-1" class="bare">https://kubernetes.io/docs/concepts/storage/persistent-volumes#access-modes-1</a></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>&lt; string &gt; array</p>
+<p>&lt; enum (ReadOnlyMany, ReadWriteMany, ReadWriteOnce, ReadWriteOncePod) &gt; array</p>
 </div></div></td>
 </tr>
 <tr>
@@ -6922,7 +7006,7 @@ data:
 <p>Resources represents the minimum resources the volume should have. More info: <a href="https://kubernetes.io/docs/concepts/storage/persistent-volumes#resources" class="bare">https://kubernetes.io/docs/concepts/storage/persistent-volumes#resources</a></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><a href="#_v1_resourcerequirements">v1.ResourceRequirements</a></p>
+<p><a href="#_v1_volumeresourcerequirements">v1.VolumeResourceRequirements</a></p>
 </div></div></td>
 </tr>
 <tr>
