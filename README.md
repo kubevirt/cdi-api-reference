@@ -7,6 +7,7 @@ Content of this repository is generated from OpenAPI specification of
 
 * [main](https://kubevirt.io/cdi-api-reference/main/index.html)
 * [v1.61.0](https://kubevirt.io/cdi-api-reference/v1.61.0/index.html)
+* [v1.60.5](https://kubevirt.io/cdi-api-reference/v1.60.5/index.html)
 * [v1.60.4](https://kubevirt.io/cdi-api-reference/v1.60.4/index.html)
 * [v1.60.3](https://kubevirt.io/cdi-api-reference/v1.60.3/index.html)
 * [v1.60.2](https://kubevirt.io/cdi-api-reference/v1.60.2/index.html)
