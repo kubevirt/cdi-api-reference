@@ -4997,18 +4997,6 @@ currently the highest minTLSVersion allowed is VersionTLS12<br>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>createdBy</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>CreatedBy is the JSON-marshaled UserInfo of the user who created this DataImportCron. This field is set by the mutating webhook and cannot be set by users.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>garbageCollect</strong><br>
 <em>optional</em></p>
 </div></div></td>
@@ -5064,6 +5052,18 @@ currently the highest minTLSVersion allowed is VersionTLS12<br>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>Schedule specifies in cron format when and how often to look for new imports<br>
 <strong>Default</strong> : <code>""</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>serviceAccountName</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>ServiceAccountName is the name of the ServiceAccount for creating DataVolumes.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
