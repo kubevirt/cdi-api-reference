@@ -6056,6 +6056,18 @@ currently the highest minTLSVersion allowed is VersionTLS12<br>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>checksum</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Checksum is the expected checksum of the file. Format: "algorithm:hash", e.g., "sha256:1234abcd…" or "md5:5678efgh…" Supported algorithms: md5, sha1, sha256, sha512 If specified, the importer will verify the downloaded content matches this checksum</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>extraHeaders</strong><br>
 <em>optional</em></p>
 </div></div></td>
